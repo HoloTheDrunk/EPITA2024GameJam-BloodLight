@@ -9,8 +9,6 @@ namespace Assets.Scripts.Player
 		[HideInInspector] public bool jump = false;
 		private bool _canJump = true;
 
-		[HideInInspector] public Vector2 mousePos;
-
 		// Update is called once per frame
 		void Update()
 		{
@@ -22,8 +20,6 @@ namespace Assets.Scripts.Player
 				_canJump = false;
 				Invoke("ResetJump", .1f);
 			}
-
-			mousePos = Input.mousePosition;
 		}
 
 		void ResetJump()
