@@ -2,15 +2,14 @@
 
 namespace Assets.Scripts.UI_and_Camera.Menus
 {
-    public class OptionsMenu : MonoBehaviour
-    {
-        public GameObject mainMenu;
-        public GameObject optionsMenu;
-        
-        public void Back()
-        {
-            optionsMenu.SetActive(false);
-            mainMenu.SetActive(true);
-        }
-    }
+	public class OptionsMenu : MonoBehaviour
+	{
+		public Animator mainMenuAnimator;
+		public Animator optionsMenuAnimator;
+
+		public void Back()
+		{
+			Camera.main.GetComponent<MenuState>().SetState(0);
+		}
+	}
 }

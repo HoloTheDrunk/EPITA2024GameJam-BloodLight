@@ -5,8 +5,8 @@ namespace Assets.Scripts.UI_and_Camera.Menus
 {
     public class MainMenu : MonoBehaviour
     {
-        public GameObject mainMenu;
-        public GameObject optionsMenu;
+        public Animator mainMenuAnimator;
+        public Animator optionsMenuAnimator;
 
         public void Play()
         {
@@ -15,8 +15,7 @@ namespace Assets.Scripts.UI_and_Camera.Menus
 
         public void Options()
         {
-            mainMenu.SetActive(false);
-            optionsMenu.SetActive(true);
+            Camera.main.GetComponent<MenuState>().SetState(1);
         }
 
         public void Quit()

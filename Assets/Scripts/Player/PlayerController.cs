@@ -28,6 +28,8 @@ namespace Assets.Scripts.Player
 		// Horizontal constants
 		public float maxMoveSpeed = 20f;
 		public float moveSpeed = 20f;
+		[Range(0f, 1f)] public float frictionCoefficient = .5f;
+		[Range(1f, 10f)] public float frictionMultiplier = 5f;
 
 		// Vertical constants
 		public float terminalVelocity = 50f;
@@ -70,7 +72,11 @@ namespace Assets.Scripts.Player
 
 			if (isGrounded)
 			{
-				rb.AddForce(Vector2.right * inputHandler.x * moveSpeed * Time.deltaTime);
+				rb.AddForce(Vector2.right * inputHandler.x * moveSpeed * Time.fixedDeltaTime);
+				rb.AddForce(Vector2.right * -rb.velocity.x * frictionCoefficient * frictionMultiplier);
+				Debug.DrawRay(transform.position,
+					Vector2.right * -rb.velocity.x * frictionCoefficient * frictionMultiplier,
+					Color.red);
 			}
 			else
 			{
