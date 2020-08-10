@@ -258,6 +258,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1553379955}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &85540060 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2941702017807846011, guid: 747041932da3ba142975d6a6d3881c0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1710681734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86db352acf32d1e41837a1a0ac47641b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &139707973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6960503619095551567, guid: ca9f042703859864b904ffe9ea387ce2,
@@ -3875,6 +3887,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5797086990996505427, guid: 088c3aa66eb8bbe4c9a9b7c002411405,
+        type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 85540060}
     - target: {fileID: 5797086990996505430, guid: 088c3aa66eb8bbe4c9a9b7c002411405,
         type: 3}
       propertyPath: m_Name
@@ -4376,6 +4393,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 3673265525714584037, guid: ba654be83d48086429d0489825f864ca,
+        type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: ef07e8c42f4dc464d8050e043c6c9c14,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba654be83d48086429d0489825f864ca, type: 3}
 --- !u!20 &3673265526970096203 stripped
