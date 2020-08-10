@@ -10,6 +10,7 @@ namespace Assets.Scripts.Objects
         private SpriteRenderer _playerSpriteRenderer;
         private PlayerController _playerController;
         private Rigidbody2D _playerRb;
+        private PlayerStats _playerStats;
 
         void Start()
         {
@@ -17,6 +18,7 @@ namespace Assets.Scripts.Objects
             _playerSpriteRenderer = _player.GetComponent<SpriteRenderer>();
             _playerController = _player.GetComponent<PlayerController>();
             _playerRb = _player.GetComponent<Rigidbody2D>();
+            _playerStats = _player.GetComponent<PlayerStats>();
         }
 
         public void OnCollisionEnter2D(Collision2D other)
@@ -32,7 +34,8 @@ namespace Assets.Scripts.Objects
                 _playerSpriteRenderer.enabled = false;
                 _playerController.enabled = false;
                 _playerRb.isKinematic = true;
-                
+                _playerStats.AddDeath();
+
                 Invoke("RespawnPlayer", .5f);
             }
         }
