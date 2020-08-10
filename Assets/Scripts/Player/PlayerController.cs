@@ -10,6 +10,9 @@ namespace Assets.Scripts.Player
 
 		// Input
 		[HideInInspector] public InputHandler inputHandler;
+		
+		// Audio
+		[HideInInspector] public SFXPlayer sfxPlayer;
 
 		// Physics related
 		[HideInInspector] public Rigidbody2D rb;
@@ -43,6 +46,9 @@ namespace Assets.Scripts.Player
 		public void Start()
 		{
 			_playerSprite = GetComponent<SpriteRenderer>().sprite;
+			
+			// Get sfx player
+			sfxPlayer = GetComponent<SFXPlayer>();
 
 			// ReSharper disable once CompareOfFloatsByEqualityOperator
 			if (_groundSensorWidth == 0)
@@ -107,6 +113,7 @@ namespace Assets.Scripts.Player
 				if (isGrounded)
 				{
 					Jump(1f / jumpDampener);
+					sfxPlayer.PlayJumpSound();
 					isGrounded = false;
 				}
 			}

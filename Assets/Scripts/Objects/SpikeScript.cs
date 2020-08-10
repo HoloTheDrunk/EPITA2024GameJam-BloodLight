@@ -35,6 +35,7 @@ namespace Assets.Scripts.Objects
                 _playerController.enabled = false;
                 _playerRb.isKinematic = true;
                 _playerStats.AddDeath();
+                _playerController.sfxPlayer.PlayDeathSound();
 
                 Invoke("RespawnPlayer", .5f);
             }

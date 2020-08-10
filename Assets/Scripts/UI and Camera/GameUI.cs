@@ -20,7 +20,6 @@ namespace Assets.Scripts.UI_and_Camera
         {
             if (playerStats.DeathCount != Int16.Parse(deathCounter.text.Substring(8)))
             {
-                Debug.Log("coucou1");
                 deathCounter.text = $"DEATHS: {playerStats.DeathCount.ToString()}";
             }
         }
