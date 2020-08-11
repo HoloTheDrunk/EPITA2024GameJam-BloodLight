@@ -6,8 +6,6 @@ namespace Assets.Scripts.UI_and_Camera.Menus
     public class MainMenu : MonoBehaviour
     {
         [SerializeField] private AudioSource _audioSource = null;
-        public Animator mainMenuAnimator;
-        public Animator optionsMenuAnimator;
 
         public void Play()
         {

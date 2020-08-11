@@ -24,11 +24,8 @@ namespace Assets.Scripts.Objects
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    GameObject particle = (GameObject) Instantiate(Resources.Load("Prefabs/DeathParticle"));
-                    particle.transform.position = other.transform.position;
-                }
+                _playerController.Bleed();
+
                 other.rigidbody.velocity = Vector2.zero;
                 _playerSpriteRenderer.enabled = false;
                 _playerController.enabled = false;

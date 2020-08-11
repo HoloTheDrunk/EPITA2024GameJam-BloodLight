@@ -13,8 +13,6 @@ namespace Assets.Scripts.UI_and_Camera
 		[SerializeField] private GameObject _right = null;
 		[SerializeField] private GameObject _space = null;
 
-		[SerializeField] private InputHandler _inputHandler = null;
-
 		public void Start()
 		{
 			_originalScale = Vector3.one * _space.transform.localScale.x;
@@ -24,19 +22,15 @@ namespace Assets.Scripts.UI_and_Camera
 		public void Update()
 		{
 			// Left
-			if (_inputHandler.x < -0.2)
-			{
+			if (Input.GetKey(KeyCode.Q))
 				_left.transform.localScale = _originalScale * _offset;
-			}
 			else
-			{
 				_left.transform.localScale = _originalScale;
-
-				if (_inputHandler.x > 0.2)
-					_right.transform.localScale = _originalScale * _offset;
-				else
-					_right.transform.localScale = _originalScale;
-			}
+			
+			if (Input.GetKey(KeyCode.D))
+				_right.transform.localScale = _originalScale * _offset;
+			else
+				_right.transform.localScale = _originalScale;
 
 			if (Input.GetAxis("Jump") > 0.1)
 				_space.transform.localScale = _originalScale * _offset;

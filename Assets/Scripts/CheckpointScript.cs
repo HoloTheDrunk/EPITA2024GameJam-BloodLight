@@ -6,11 +6,16 @@ namespace Assets.Scripts
     public class CheckpointScript : MonoBehaviour
     {
         private PlayerController _playerController;
-        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioSource _audioSource = null;
+
+        private GameObject _particleEmitter;
+        private ParticleSystem _particleSystem;
         
         public void Start()
         {
             _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            _particleEmitter = transform.GetChild(0).gameObject;
+            _particleSystem = _particleEmitter.GetComponent<ParticleSystem>();
         }
 
         public void OnTriggerEnter2D(Collider2D other)
@@ -21,9 +26,13 @@ namespace Assets.Scripts
                 {
                     _playerController.spawnPoint = transform;
                     _audioSource.Play();
+                    _particleEmitter.SetActive(true);
+                    Invoke("ResetParticleSystem", _particleSystem.main.duration + _particleSystem.main.startLifetime.constant);
                 }
             }
         }
+
+        private void ResetParticleSystem() => _particleEmitter.SetActive(false);
 
         public void OnDrawGizmos()
         {

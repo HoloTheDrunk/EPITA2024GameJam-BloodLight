@@ -79,6 +79,9 @@ namespace Assets.Scripts.Player
 			// Check if player is on the ground
 			isGrounded = IsGrounded();
 
+			// Gravity
+			rb.AddForce(Physics2D.gravity);
+			
 			if (isGrounded)
 			{
 				rb.AddForce(Vector2.right * inputHandler.x * moveSpeed * Time.fixedDeltaTime);
@@ -93,7 +96,7 @@ namespace Assets.Scripts.Player
 				rb.AddForce(Vector2.down * 10);
 
 				// Add horizontal movement
-				rb.AddForce(Vector2.right * inputHandler.x * moveSpeed * Time.deltaTime / 2f);
+				rb.AddForce(Vector2.right * inputHandler.x * moveSpeed * Time.fixedDeltaTime / 2f);
 			}
 
 
@@ -105,7 +108,7 @@ namespace Assets.Scripts.Player
 				rb.velocity = new Vector2(rb.velocity.x, terminalVelocity * Math.Sign(rb.velocity.y));
 		}
 
-		public void LateUpdate()
+		public void Update()
 		{
 			#region Jumping
 
@@ -140,6 +143,15 @@ namespace Assets.Scripts.Player
 		}
 
 		#endregion
+
+		public void Bleed()
+		{
+			for (int i = 0; i < 5; i++)
+			{
+				GameObject particle = (GameObject) Instantiate(Resources.Load("Prefabs/DeathParticle"));
+				particle.transform.position = transform.position;
+			}
+		}
 
 		public void OnDrawGizmos()
 		{
