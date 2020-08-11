@@ -5,6 +5,9 @@ namespace Assets.Scripts.Player
 {
 	public class PlayerController : MonoBehaviour
 	{
+		// Spawn point
+		public Transform spawnPoint;
+		
 		// Player sprite
 		private Sprite _playerSprite;
 

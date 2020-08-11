@@ -5,14 +5,13 @@ namespace Assets.Scripts.Objects
 {
     public class SpikeScript : MonoBehaviour
     {
-        public Vector2 spawnPoint;
         private GameObject _player;
         private SpriteRenderer _playerSpriteRenderer;
         private PlayerController _playerController;
         private Rigidbody2D _playerRb;
         private PlayerStats _playerStats;
 
-        void Start()
+        public void Start()
         {
             _player = GameObject.FindWithTag("Player");
             _playerSpriteRenderer = _player.GetComponent<SpriteRenderer>();
@@ -43,7 +42,7 @@ namespace Assets.Scripts.Objects
 
         public void RespawnPlayer()
         {
-            _player.transform.position = new Vector2(0f, 0.96f);
+            _player.transform.position = _playerController.spawnPoint.position;
             _playerSpriteRenderer.enabled = true;
             _playerController.enabled = true;
             _playerRb.isKinematic = false;
